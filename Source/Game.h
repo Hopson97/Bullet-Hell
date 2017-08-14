@@ -30,7 +30,7 @@ class Game
 template<typename T, typename... Args>
 void Game::pushState(Args&&... args)
 {
-    m_states.push_back(std::make_unique<StateBase>(std::forward<Args>(args)...));
+    m_states.push_back(std::make_unique<T>(std::forward<Args>(args)...));
 }
 
 

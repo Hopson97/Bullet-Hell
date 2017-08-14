@@ -17,7 +17,7 @@ void Game::runLoop()
         auto& state     = getCurrentState();
 
         state.handleInput();
-        state.update(deltaTime.asSeconds());
+        state.update(deltaTime.asSeconds(), m_window);
 
         m_window.clear();
         state.render(m_window);
