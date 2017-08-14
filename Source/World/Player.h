@@ -1,7 +1,8 @@
 #ifndef PLAYER_H_INCLUDED
 #define PLAYER_H_INCLUDED
 
-#include <SFML/Graphics.hpp>
+#include "../Util/Sprite.h"
+#include "../Util/Animation.h"
 
 class Player
 {
@@ -13,11 +14,14 @@ class Player
         void draw           (sf::RenderWindow& window);
 
     private:
-        sf::RectangleShape m_sprite;
-
         sf::Vector2f m_velocity;
 
-        float m_rotation;
+        Sprite      m_sprite;
+        Animation   m_walkAnim;
+
+        sf::Texture m_textureTEMP;
+
+
 };
 
 #endif // PLAYER_H_INCLUDED

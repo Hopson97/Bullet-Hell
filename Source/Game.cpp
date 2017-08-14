@@ -5,6 +5,7 @@
 Game::Game()
 :   m_window    ({1280, 720}, "Bullet Hell")
 {
+    m_window.setFramerateLimit(60);
     pushState<StatePlaying>(*this);
 }
 
@@ -19,7 +20,7 @@ void Game::runLoop()
         state.handleInput();
         state.update(deltaTime.asSeconds(), m_window);
 
-        m_window.clear();
+        m_window.clear({50, 255, 40});
         state.render(m_window);
         m_window.display();
 

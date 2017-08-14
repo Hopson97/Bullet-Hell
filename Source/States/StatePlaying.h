@@ -2,7 +2,7 @@
 #define STATEPLAYING_H_INCLUDED
 
 #include "StateBase.h"
-#include "../Player/Player.h"
+#include "../World/Player.h"
 
 class StatePlaying : public StateBase
 {
