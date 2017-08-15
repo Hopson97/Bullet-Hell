@@ -14,6 +14,8 @@ class Game
 
         void runLoop();
 
+        const sf::RenderWindow& getWindow() const;
+
     private:
         StateBase& getCurrentState();
         void handleWinEvents(StateBase& state);

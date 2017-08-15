@@ -28,6 +28,12 @@ void Game::runLoop()
     }
 }
 
+const sf::RenderWindow& Game::getWindow() const
+{
+    return m_window;
+}
+
+
 StateBase& Game::getCurrentState()
 {
     return *m_states.back();

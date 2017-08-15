@@ -2,7 +2,7 @@
 #define STATEPLAYING_H_INCLUDED
 
 #include "StateBase.h"
-#include "../World/Player.h"
+#include "../World/WorldObject.h"
 
 class StatePlaying : public StateBase
 {
@@ -14,7 +14,10 @@ class StatePlaying : public StateBase
         void render(sf::RenderWindow& window) override;
 
     private:
-        Player m_player;
+        WorldObject m_player;
+
+        std::vector<WorldObject> m_worldObjects;
+
 
 };
 
