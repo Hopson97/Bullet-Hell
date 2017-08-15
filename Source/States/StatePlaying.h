@@ -3,6 +3,7 @@
 
 #include "StateBase.h"
 #include "../World/WorldObject.h"
+#include "../World/Player.h"
 
 
 class StatePlaying : public StateBase
@@ -15,7 +16,7 @@ class StatePlaying : public StateBase
         void render(sf::RenderWindow& window) override;
 
     private:
-        WorldObject     m_player;
+        Player m_player;
 
         std::vector<std::unique_ptr<WorldObject>> m_worldObjects;
 

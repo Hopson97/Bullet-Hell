@@ -7,11 +7,12 @@
 
 #include "../Util/Sprite.h"
 #include "Component/ComponentBase.h"
+#include "../Util/Animation.h"
 
 class WorldObject
 {
     public:
-        WorldObject(const sf::Vector2f& spriteSize, float speed);
+        WorldObject(const sf::Texture& t, const sf::Vector2f& spriteSize, float speed);
 
         Sprite& getSprite();
         const sf::Vector2f& getPosition() const;
@@ -23,6 +24,9 @@ class WorldObject
 
         template<typename Comp, typename... Args>
         void addComponent(Args&&... args);
+
+    protected:
+        Animation m_walkAnimation;
 
     private:
         std::vector<std::unique_ptr<ComponentBase>> m_components;
