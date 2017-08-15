@@ -6,12 +6,16 @@
 
 #include "../Game.h"
 
+#include "../World/Enemies.h"
+
 StatePlaying::StatePlaying(Game& game)
-:   StateBase   (game)
-,   m_player    ({64, 32}, 10)
+:   StateBase       (game)
+,   m_player        ({64, 32}, 10)
 {
     m_player.addComponent<LooksAtMouse>(m_player, game.getWindow());
-    m_player.getSprite().setSize({50, 50});
+
+    for (int i = 0; i < 100; i++)
+    m_worldObjects.push_back(std::make_unique<BasicZombie>(m_player));
 }
 
 void StatePlaying::handleInput()
@@ -28,7 +32,7 @@ void StatePlaying::update(float dt, const sf::RenderWindow& window)
 
     for (auto& obj : m_worldObjects)
     {
-        obj.update(dt);
+        obj->update(dt);
     }
 }
 
@@ -36,7 +40,8 @@ void StatePlaying::render(sf::RenderWindow& window)
 {
     for (auto& obj : m_worldObjects)
     {
-        obj.draw(window);
+        std::cout << m_worldObjects.size() << '\n';
+        obj->draw(window);
     }
 
     m_player.draw(window);

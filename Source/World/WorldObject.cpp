@@ -5,6 +5,7 @@
 WorldObject::WorldObject(const sf::Vector2f& spriteSize, float speed)
 :   m_speed (speed)
 {
+    m_sprite.setSize(spriteSize);
     m_sprite.setOrigin(spriteSize.x / 2, spriteSize.y / 2);
 }
 
